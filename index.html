@@ -287,7 +287,7 @@ function render(){
     else { html+='<img class="hero-img" src="'+s.img+'" alt="Brazilian keratin smoothing kit" onerror="this.style.display=\'none\'">'; }
     html+='<p class="lede center">'+p(s.lede)+'</p>';
     html+='<div class="note">'+p(s.note)+'</div>';
-    scr.innerHTML=html; showCTA(s.cta+" →","✨ Free quiz · build your plan in 3 minutes"); ctaBtn.onclick=next; return;
+    scr.innerHTML=html; showCTA(s.cta+" →","✨ Free quiz · build your plan in 3 minutes",true); ctaBtn.onclick=next; return;
   }
 
   if(s.k==="form"){
@@ -321,7 +321,7 @@ function render(){
     html+='<h1 class="q">'+p(s.h)+'</h1><div class="tiles">';
     s.tiles.forEach(function(t){ html+='<div class="tile"><div class="te">'+t.e+'</div><b>'+t.t+'</b><p>'+t.p+'</p></div>'; });
     html+='</div>';
-    scr.innerHTML=html; showCTA(s.cta+" →"); ctaBtn.onclick=next; return;
+    scr.innerHTML=html; showCTA(s.cta+" →",null,true); ctaBtn.onclick=next; return;
   }
 
   if(s.k==="note"){
