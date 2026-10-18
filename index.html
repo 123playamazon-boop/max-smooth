@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Brazilian Glass Hair Quiz — Find Your Smoothing Plan</title>
+<meta name="description" content="Answer a few quick questions and build your at-home Brazilian keratin smoothing plan. Takes under 3 minutes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e1424; --muted:#6b7488; --cream:#f4f7fd; --card:#ffffff;
+  --green:#1452e6; --greenD:#0b2a7a; --gold:#0b2a7a; --goldD:#0b2a7a;
+  --line:#e6ebf5; --soft:#eef2fa; --red:#c0392b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);background:var(--cream);line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding:0 16px 120px}
+/* top bar */
+.topbar{position:sticky;top:0;z-index:30;background:rgba(251,247,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.topbar .in{max-width:560px;margin:0 auto;padding:10px 16px 12px}
+.brandrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.brand{font-family:Archivo;font-weight:900;letter-spacing:.3px;font-size:16px;color:var(--green)}
+.brand span{color:var(--gold)}
+.badge{font-size:11px;font-weight:800;color:var(--greenD);background:#e8efff;border:1px solid #cfe0ff;border-radius:999px;padding:4px 10px}
+.prog{height:8px;background:#dce6fb;border-radius:999px;overflow:hidden}
+.prog i{display:block;height:100%;width:6%;background:linear-gradient(90deg,var(--gold),var(--green));transition:width .4s ease}
+.earn{display:flex;align-items:baseline;gap:6px;margin-top:8px}
+.earn small{font-size:11px;font-weight:800;color:var(--muted);text-transform:uppercase;letter-spacing:.4px}
+.earn b{font-family:Archivo;font-weight:900;color:var(--gold);font-size:20px}
+.tier{margin-left:auto;font-size:12px;font-weight:800;color:var(--green);background:#e8efff;border:1px solid #cfe0ff;border-radius:999px;padding:3px 10px}
+/* content */
+.screen{padding-top:22px}
+.eyebrow{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--gold)}
+h1.q{font-family:Archivo;font-weight:900;font-size:27px;line-height:1.18;margin-top:4px}
+.center{text-align:center}
+.lede{color:#3b4458;font-size:16px;margin-top:12px}
+.hl{background:linear-gradient(transparent 60%,#cfe0ff 60%);padding:0 2px}
+.hlg{color:var(--green);font-weight:800}
+.hlr{color:var(--red);font-weight:800}
+.hero-img{width:100%;border-radius:16px;margin-top:16px;display:block;border:1px solid var(--line)}
+.vwrap{position:relative;width:100%;aspect-ratio:1/1;border-radius:16px;overflow:hidden;margin-top:16px;background:#000;border:1px solid var(--line)}
+.note{color:#3b4458;font-size:14px;margin-top:14px;background:var(--soft);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+/* options */
+.opts{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.opt{display:flex;align-items:center;gap:12px;background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:15px 16px;font-size:15.5px;font-weight:600;cursor:pointer;transition:.15s;text-align:left}
+.opt:hover{border-color:var(--green);background:#f0f5ff;transform:translateY(-1px)}
+.opt .dot{width:20px;height:20px;border-radius:50%;border:2px solid #aebdd6;flex:none}
+/* reward chip */
+.reward{display:flex;align-items:center;gap:12px;background:#eef3fe;border:1.5px solid #cfe0ff;border-radius:15px;padding:14px 16px;margin-top:20px}
+.reward .emo{font-size:26px}
+.reward b{display:block;font-size:15px}
+.reward small{color:var(--goldD);font-weight:800}
+/* form */
+.field{margin-top:20px}
+.field label{display:block;font-size:13px;font-weight:700;color:var(--muted);margin-bottom:6px}
+.field input{width:100%;border:1.5px solid var(--line);border-radius:14px;padding:15px 16px;font-size:16px;font-family:inherit;background:#fff}
+.field input:focus{outline:none;border-color:var(--green)}
+/* tiles */
+.tiles{margin-top:18px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tile{background:var(--card);border:1.5px solid var(--line);border-radius:14px;padding:14px}
+.tile .te{font-size:22px}
+.tile b{display:block;font-size:14px;margin-top:6px}
+.tile p{font-size:12.5px;color:var(--muted);margin-top:3px}
+/* loading */
+.load{text-align:center;padding:40px 0}
+.spin{width:46px;height:46px;border:4px solid #dce6fb;border-top-color:var(--green);border-radius:50%;margin:0 auto 18px;animation:sp 1s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.loadbar{height:8px;background:#dce6fb;border-radius:999px;overflow:hidden;max-width:260px;margin:14px auto 0}
+.loadbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--green));animation:fill 3.3s ease forwards}
+@keyframes fill{to{width:100%}}
+.sub{color:var(--muted);font-size:14px}
+/* result blocks */
+.offerline{margin:14px auto 2px;max-width:520px;text-align:center;background:#eef3fe;border:2px solid #cfe0ff;border-radius:16px;padding:14px 16px}
+.offerline .ol-top{font-size:15px;color:#0e1424;line-height:1.35}
+.offerline .ol-price{font-family:Archivo;font-weight:900;font-size:42px;color:var(--green);line-height:1.05;margin:4px 0}
+.offerline .ol-sub{color:var(--muted);font-size:12.5px;font-weight:700}
+.ugc{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.ugc figure{margin:0}
+.ugc img{width:100%;border-radius:14px;display:block;border:1px solid var(--line)}
+.ugc figcaption{font-size:12px;color:var(--muted);text-align:center;margin-top:5px;font-weight:600}
+.steps{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+.step{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.step .n{flex:none;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:14px}
+.step b{font-size:15px}
+.step p{font-size:13.5px;color:#3b4458;margin-top:2px}
+.gifts{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
+.gifts h3{font-family:Archivo;font-size:17px;margin-bottom:10px}
+.gline{display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px dashed var(--line)}
+.gline:first-of-type{border-top:none}
+.gline .ge{font-size:22px;flex:none}
+.gline b{font-size:14.5px;display:block}
+.gline p{font-size:12.5px;color:var(--muted);margin-top:1px}
+.gline .gv{margin-left:auto;font-weight:800;color:var(--muted);text-decoration:line-through;font-size:13px;white-space:nowrap}
+.gline.totalv{border-top:2px solid var(--line);margin-top:4px}
+.gline.totalv .totalp{color:var(--ink);text-decoration:none;font-family:Archivo;font-size:16px}
+.pricebox{margin-top:16px;text-align:center;background:#eef3fe;border:2px solid #cfe0ff;border-radius:18px;padding:20px 16px}
+.pricebox .from{color:var(--muted);text-decoration:line-through;font-weight:700}
+.pricebox .now{font-family:Archivo;font-weight:900;font-size:46px;color:var(--green);line-height:1}
+.pricebox .once{color:var(--muted);font-size:13px;margin-top:2px}
+.bump{display:flex;gap:12px;align-items:flex-start;margin-top:14px;background:#fffbe9;border:2px dashed #e9c84a;border-radius:14px;padding:14px 16px;cursor:pointer}
+.bump input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--green)}
+.bump b{font-size:14.5px;display:block}
+.bump p{font-size:12.5px;color:#4a443c;margin-top:3px}
+.guar{display:flex;gap:14px;align-items:flex-start;background:#f0f5ff;border:1.5px solid #cfe0ff;border-radius:16px;padding:16px;margin-top:16px}
+.guar b{font-size:15px}.guar p{font-size:13px;color:#3b4458;margin-top:4px}
+.sealrow{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.seal{font-size:12px;font-weight:700;color:var(--greenD);background:#e8efff;border:1px solid #cfe0ff;border-radius:999px;padding:6px 12px}
+.faq{margin-top:12px}
+.faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 14px;margin-bottom:8px}
+.faq summary{cursor:pointer;font-weight:700;font-size:14.5px;padding:14px 0;list-style:none}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";float:right;color:var(--gold);font-weight:900}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{font-size:13.5px;color:#3b4458;padding:0 0 14px}
+.disc{font-size:11px;color:var(--muted);margin-top:18px;line-height:1.5;border-top:1px solid var(--line);padding-top:14px}
+/* CTA */
+.ctawrap{position:fixed;left:0;right:0;bottom:0;z-index:40;background:linear-gradient(180deg,rgba(251,247,241,0),var(--cream) 34%);padding:14px 16px calc(14px + env(safe-area-inset-bottom))}
+.ctawrap .in{max-width:560px;margin:0 auto}
+.cta{display:block;width:100%;border:none;border-radius:16px;background:linear-gradient(180deg,var(--green),var(--greenD));color:#fff;font-family:Archivo;font-weight:900;font-size:18px;padding:18px;cursor:pointer;box-shadow:0 10px 24px rgba(20,82,230,.28)}
+.cta:active{transform:translateY(1px)}
+.cnote{text-align:center;font-size:12px;color:var(--muted);margin-top:8px;font-weight:600}
+.urg{text-align:center;font-size:12px;font-weight:800;color:var(--red);margin-top:4px}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="in">
+  <div class="brandrow">
+    <div class="brand">IT'S <span>BRAZILIAN</span></div>
+    <div class="badge">★ Salon-grade at home</div>
+  </div>
+  <div class="prog"><i id="pfill"></i></div>
+  <div class="earn"><small>Bonuses unlocked</small><b id="enum">$0</b><span class="tier" id="tier">Frizz Fighter</span></div>
+</div></div>
+
+<div class="wrap"><div id="screen" class="screen"></div></div>
+
+<div class="ctawrap" id="ctawrap" style="display:none"><div class="in">
+  <button class="cta" id="ctaBtn">Continue →</button>
+  <div class="cnote" id="cnote">⏱️ Takes less than 3 minutes</div>
+</div></div>
+
+<!-- ================= TRACKING SCAFFOLD (fill the IDs before launch) ================= -->
+<script>
+/* Meta Pixel */
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+try{ fbq('init','2395211664620778'); fbq('track','PageView'); }catch(e){}
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2395211664620778&ev=PageView&noscript=1"/></noscript>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","CLARITY_ID");
+</script>
+<!-- RedTrack: capture rtkcid from the URL so it rides into the Shopify order -->
+<script>
+(function(){try{
+  var p=new URLSearchParams(location.search);
+  var rtk=p.get('rtkcid')||p.get('clickid')||'';
+  if(rtk){ try{localStorage.setItem('rtkcid',rtk);}catch(e){} }
+  window.__rtkcid = rtk || (function(){try{return localStorage.getItem('rtkcid')||'';}catch(e){return'';}})();
+}catch(e){}})();
+</script>
+
+<script>
+/* ================= CONFIG ================= */
+/* Shopify cart permalink. Replace STORE + VARIANT_ID once the product exists.
+   Format: https://your-store.myshopify.com/cart/VARIANT_ID:1  (or custom domain) */
+var CHECKOUT_URL = "https://pay.seeseofficial.shop/cart/53976256741665:1";
+/* order bump — Bumbum Cream (1 jar) on the same Shopify store */
+var BUMP_VARIANT = "53027149480225";
+var BUMP_PRICE   = "39.99";
+var VIDEO_SRC    = ""; // optional UGC/demo mp4 filename in this folder
+var PRICE        = "74.99";
+var PRICE_FROM   = "290"; // stacked value anchor (treatment $139 + spray $39 + bonuses $112)
+var SALON        = "350"; // typical US salon keratin price (anchor)
+
+/* ================= QUIZ DATA ================= */
+var STEPS = [
+ {k:"intro",eyebrow:"MAX SMOOTH by It’s Brazilian · The Salon Secret",
+  h:'The Brazilian salon secret for <span class="hlg">glass-smooth, frizz-free hair</span> that lasts <span class="hlg">up to 3 months</span> — at home, for <span class="hlr">less than one blow-dry</span>.',
+  img:"before-after.webp",
+  vid:"", poster:"before-after.webp",
+  lede:'Salons charge <b>$300–$500</b> for a Brazilian keratin treatment — and you’re back in the chair within months. <b>MAX SMOOTH</b> is the <span class="hl">same professional keratin + collagen system</span>, bottled for home: it smooths coarse, curly, frizz-prone hair into a sleek, shiny finish that holds through humidity, rain and heat. One kit gives you <b>5–8 salon-grade treatments</b>. Answer a few quick questions and build your personalized smoothing plan — and unlock the bonuses that come with your kit.',
+  note:"How it works: answer below in under 3 minutes. Each answer unlocks a bonus that’s included with your kit and builds your plan at the end.",
+  cta:"Build my plan"},
+
+ {k:"form",h:"What name should we put on your plan?",label:"Your first name",cta:"Continue"},
+ {k:"reward",emo:"🎁",title:"Personalized Smoothing Plan reserved",val:19},
+
+ {k:"q",h:"{name}, how would you describe your hair?",
+  opts:["Curly / coily and frizzy","Wavy and gets frizzy in humidity","Straight but frizzy, puffy, hard to manage","Coarse / thick and takes forever to style"]},
+
+ {k:"q",h:"What frustrates you most about your hair right now?",
+  opts:["Frizz the second there’s humidity","I spend forever with the flat iron","Salon keratin costs a fortune","It’s dry, damaged and dull"]},
+
+ {k:"reward",emo:"💧",title:"Humidity-Proofing Mini Guide",val:27,
+  head:"Smart — this is exactly what the kit is built for, {name} 💧",
+  body:"The <b>keratin + collagen treatment</b> fills and seals the hair cuticle, and the <b>450°F heat protectant spray</b> locks the smoothing in every time you style. Together they’re the <span class=\"hl\">Collagen-Seal Method</span>: smooth once, then hold it frizz-free for weeks — even when the weather turns against you."},
+
+ {k:"q",h:"How often do you use heat on your hair (flat iron / blow dryer)?",
+  opts:["Almost every day","A few times a week","Only for special occasions","I avoid heat because it damages my hair"]},
+
+ {k:"q",h:"{name}, how much do you spend on salon smoothing / keratin per year?",
+  opts:["$600+ a year","$300–$600 a year","Under $300","I’ve never done it — too expensive"]},
+
+ {k:"tiles",h:"Why MAX SMOOTH beats the salon chair",cta:"Makes sense, continue",
+  tiles:[
+   {e:"💸",t:"5–8 treatments per kit",p:"A single salon visit is gone in one session. One MAX SMOOTH kit gives you 5–8 treatments, for a fraction of the cost."},
+   {e:"🪞",t:"Glass-smooth finish",p:"Keratin + collagen seal the cuticle for that sleek, shiny, ‘just left the salon’ look."},
+   {e:"⏱️",t:"Lasts up to 3 months",p:"Done right and maintained sulfate-free, the smoothing holds for up to 3 months — not a frizz-free afternoon that’s gone by tomorrow."},
+   {e:"🛡️",t:"Heat shield built in",p:"The 450°F thermal spray protects every pass of the iron, so styling stops damaging and starts sealing."},
+   {e:"🧴",t:"Sulfate-free friendly",p:"Keep results longer with sulfate-free maintenance — no harsh washes stripping the treatment out."},
+   {e:"🏠",t:"On your schedule",p:"No booking, no half-day in a salon. Do it at home, on a Sunday, in your own bathroom."}
+  ]},
+
+ {k:"reward",emo:"📘",title:"Step-by-Step Application Playbook",val:37},
+
+ {k:"q",h:"What would ‘smooth hair that just works’ change for you?",
+  opts:["Wake up and go — no more daily fight","Feel confident in humidity, rain, the gym","Stop spending hundreds at the salon","Finally grow it out healthy and shiny"]},
+
+ {k:"note",emo:"🤝",h:"Don’t worry — the kit is made to be foolproof at home",
+  body:"Even if you’ve never done a treatment yourself, the playbook walks you through it step by step: apply to damp hair, blow dry, then seal at 450°F. If you can use a flat iron, you can do this.",cta:"Continue"},
+
+ {k:"reward",emo:"✨",title:"Frizz-Free Styling & Maintenance Guide",val:29},
+
+ {k:"q",h:"{name}, ready to get salon-smooth hair without the salon price?",
+  opts:["Maybe!","Yes!","Absolutely — show me"]},
+
+ {k:"loading",h:"Building your personalized smoothing plan and bonuses...",sub:"Matching the kit to your hair..."},
+
+ {k:"result"}
+];
+
+/* ================= ENGINE ================= */
+var idx=0, total=STEPS.length;
+var earned=0, name="";
+var scr=document.getElementById('screen');
+var ctawrap=document.getElementById('ctawrap'), ctaBtn=document.getElementById('ctaBtn'), cnote=document.getElementById('cnote');
+var pfill=document.getElementById('pfill'), enumEl=document.getElementById('enum'), tierEl=document.getElementById('tier');
+var TIERS=[[0,"Frizz Fighter"],[40,"Smooth Seeker"],[80,"Glass Hair"]];
+
+function p(t){ return String(t||"").replace(/\{name\}/g, name||"there"); }
+function setEarn(v){ earned=v; enumEl.textContent="$"+earned; var t="Frizz Fighter"; TIERS.forEach(function(x){ if(earned>=x[0]) t=x[1]; }); tierEl.textContent=t; }
+function prog(){ pfill.style.width=Math.max(6,Math.round((idx/(total-1))*100))+"%"; }
+function showCTA(label,note){ ctawrap.style.display="block"; ctaBtn.textContent=label; cnote.innerHTML=note||"⏱️ Takes less than 3 minutes"; }
+function hideCTA(){ ctawrap.style.display="none"; }
+function next(){ if(idx<total-1){ idx++; render(); window.scrollTo({top:0,behavior:"smooth"}); } }
+
+function render(){
+  prog();
+  var s=STEPS[idx], html="";
+
+  if(s.k==="intro"){
+    html+='<div class="eyebrow center">'+s.eyebrow+'</div>';
+    html+='<h1 class="q center" style="margin-top:6px">'+p(s.h)+'</h1>';
+    if(s.vid){ html+='<div class="vwrap"><video autoplay muted loop playsinline poster="'+(s.poster||'')+'" style="width:100%;height:100%;object-fit:cover"><source src="'+s.vid+'" type="video/mp4"></video></div>'; }
+    else { html+='<img class="hero-img" src="'+s.img+'" alt="Brazilian keratin smoothing kit" onerror="this.style.display=\'none\'">'; }
+    html+='<p class="lede center">'+p(s.lede)+'</p>';
+    html+='<div class="note">'+p(s.note)+'</div>';
+    scr.innerHTML=html; showCTA(s.cta+" →","✨ Free quiz · build your plan in 3 minutes"); ctaBtn.onclick=next; return;
+  }
+
+  if(s.k==="form"){
+    html+='<h1 class="q">'+p(s.h)+'</h1>';
+    html+='<div class="field"><label>'+s.label+'</label><input id="nm" type="text" autocomplete="given-name" placeholder="Type your first name"></div>';
+    scr.innerHTML=html; showCTA(s.cta+" →");
+    var inp=document.getElementById('nm'); inp.focus();
+    ctaBtn.onclick=function(){ var v=inp.value.trim(); if(v){ name=v.split(/\s+/)[0]; name=name.charAt(0).toUpperCase()+name.slice(1).toLowerCase(); } next(); };
+    inp.addEventListener('keydown',function(e){ if(e.key==='Enter') ctaBtn.click(); });
+    return;
+  }
+
+  if(s.k==="q"){
+    html+='<h1 class="q">'+p(s.h)+'</h1><div class="opts">';
+    s.opts.forEach(function(o){ html+='<button class="opt"><span class="dot"></span>'+p(o)+'</button>'; });
+    html+='</div>';
+    scr.innerHTML=html; hideCTA();
+    Array.prototype.forEach.call(scr.querySelectorAll('.opt'),function(b){ b.onclick=next; });
+    return;
+  }
+
+  if(s.k==="reward"){
+    setEarn(earned + (s.val||0));
+    if(s.head){ html+='<h1 class="q">'+p(s.head)+'</h1>'; }
+    if(s.body){ html+='<p class="lede">'+p(s.body)+'</p>'; }
+    html+='<div class="reward"><span class="emo">'+s.emo+'</span><div><b>'+p(s.title)+'</b><small>+ $'+s.val+' bonus unlocked — included 🎉</small></div></div>';
+    scr.innerHTML=html; showCTA("Continue →"); ctaBtn.onclick=next; return;
+  }
+
+  if(s.k==="tiles"){
+    html+='<h1 class="q">'+p(s.h)+'</h1><div class="tiles">';
+    s.tiles.forEach(function(t){ html+='<div class="tile"><div class="te">'+t.e+'</div><b>'+t.t+'</b><p>'+t.p+'</p></div>'; });
+    html+='</div>';
+    scr.innerHTML=html; showCTA(s.cta+" →"); ctaBtn.onclick=next; return;
+  }
+
+  if(s.k==="note"){
+    html+='<div class="reward" style="background:#f0f5ff;border-color:#cfe0ff"><span class="emo">'+s.emo+'</span><div><b>'+p(s.h)+'</b></div></div>';
+    html+='<p class="lede">'+p(s.body)+'</p>';
+    scr.innerHTML=html; showCTA(s.cta+" →"); ctaBtn.onclick=next; return;
+  }
+
+  if(s.k==="loading"){
+    html+='<div class="load"><div class="spin"></div><h1 class="q center">'+p(s.h)+'</h1><div class="loadbar"><i></i></div><p class="sub center" style="margin-top:14px">'+s.sub+'</p></div>';
+    scr.innerHTML=html; hideCTA();
+    setTimeout(next,3300); return;
+  }
+
+  if(s.k==="result"){
+    html+='<div class="center"><div class="eyebrow">🎉 Your plan is ready, '+(name||"there")+'</div>';
+    html+='<h1 class="q" style="margin-top:6px">From today, '+(name||"there")+', you get <span class="hlg">glass-smooth, frizz-free hair</span> — on your schedule, for the price of a single blow-dry.</h1></div>';
+    html+='<p class="lede center" style="font-size:15.5px">No more half-days in a salon chair. No more hundreds of dollars every few months. <b>MAX SMOOTH by It’s Brazilian</b> gives you the salon’s keratin + collagen system <b>and</b> the 450°F heat shield to lock it in — at home, up to 3 months per treatment.*</p>';
+    html+='<div class="offerline"><div class="eyebrow" style="margin-bottom:6px">The 3-Month Glass-Hair System™</div><div class="ol-top">The full <b>MAX SMOOTH kit</b> (treatment + 450°F spray) + <b>$'+earned+' in bonuses</b> for just</div><div class="ol-price">$'+PRICE+'</div><div class="ol-sub" style="color:var(--green);font-size:14px">That’s about <b>$10–$15 per salon-grade treatment</b> (5–8 per kit) vs <b>$'+SALON+'+</b> at the salon.</div><div class="ol-sub">One-time · free US shipping · 60-day smooth-or-free guarantee</div></div>';
+    if(VIDEO_SRC){ html+='<div class="vwrap"><video controls playsinline poster="before-after.webp" style="width:100%;height:100%;object-fit:cover"><source src="'+VIDEO_SRC+'" type="video/mp4"></video></div>'; }
+    html+='<img class="hero-img" loading="lazy" src="before-after.webp" alt="MAX SMOOTH before and after" onerror="this.style.display=\'none\'">';
+    /* real customer before/after — no filters */
+    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">Real women · no filters · one treatment</div><h1 class="q" style="font-size:22px;margin-top:4px">What the hairdressers don’t want you to see</h1></div>';
+    html+='<img class="hero-img" loading="lazy" src="ba-selfie1.webp" alt="Real customer before and after" onerror="this.style.display=\'none\'">';
+    html+='<img class="hero-img" loading="lazy" src="ba-selfie2.webp" alt="Real customer before and after" onerror="this.style.display=\'none\'" style="margin-top:10px">';
+    html+='<p class="sub center" style="margin-top:8px">Same woman, same day — frizzy and unmanageable, then glass-smooth. Done at home, not in a salon.</p>';
+    /* what's in the box */
+    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">What’s in the box</div><h1 class="q" style="font-size:22px;margin-top:4px">The complete 2-step smoothing system</h1></div>';
+    html+='<div class="gifts"><h3>Your MAX SMOOTH kit includes</h3>'+
+      gline("🧴","Keratin + Collagen Smoothing Treatment — 16 fl oz (448 mL)","The professional treatment. Keratin strengthens and smooths while collagen nourishes and adds shine. 450°F, ~20-min process, 5–8 treatments per bottle, lasts up to 3 months* on medium to coarse, frizz-prone hair.","$139")+
+      gline("💨","450°F Thermal Shield Heat Protectant Spray — 8 fl oz (237 mL)","Weightless leave-in that shields hair up to 450°F, detangles, and locks out humidity — so every pass of the iron protects and seals, with no greasy residue.","$39")+
+      '</div>';
+    /* how it works — real infographic */
+    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">How it works</div><h1 class="q" style="font-size:22px;margin-top:4px">The problem, the solution, the result</h1></div>';
+    html+='<img class="hero-img" loading="lazy" src="problem-solution-result.webp" alt="How MAX SMOOTH works" onerror="this.style.display=\'none\'">';
+    html+='<div class="steps" style="margin-top:14px">'+
+      '<div class="step"><span class="n">1</span><div><b>Apply to clean, damp hair</b><p>Work the keratin + collagen treatment through section by section.</p></div></div>'+
+      '<div class="step"><span class="n">2</span><div><b>Blow dry, then seal at 450°F</b><p>Blow dry 100%, then flat-iron at 450°F — the heat is what locks the smoothing in.</p></div></div>'+
+      '<div class="step"><span class="n">3</span><div><b>Protect &amp; maintain</b><p>Mist the 450°F spray before styling and keep a sulfate-free routine to hold results up to 3 months.*</p></div></div>'+
+      '</div>';
+    /* results over time */
+    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">Results over time</div><h1 class="q" style="font-size:22px;margin-top:4px">Day 1 to Month 3</h1></div>';
+    html+='<img class="hero-img" loading="lazy" src="timeline-treatment.webp" alt="MAX SMOOTH results from day 1 to month 3" onerror="this.style.display=\'none\'">';
+    /* durability tests */
+    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">Real-life durability</div><h1 class="q" style="font-size:22px;margin-top:4px">Humidity, rain, sweat &amp; heat</h1></div>';
+    html+='<img class="hero-img" loading="lazy" src="durability-treatment.webp" alt="Durability test — smooth in every condition" onerror="this.style.display=\'none\'">';
+    html+='<img class="hero-img" loading="lazy" src="durability-spray.webp" alt="450°F spray durability test" onerror="this.style.display=\'none\'">';
+    /* the spray, step by step */
+    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">Your 450°F thermal shield</div><h1 class="q" style="font-size:22px;margin-top:4px">Protect every pass of the iron</h1></div>';
+    html+='<img class="hero-img" loading="lazy" src="spray-howto.webp" alt="How to use the 450°F heat protectant spray" onerror="this.style.display=\'none\'">';
+    html+='<img class="hero-img" loading="lazy" src="wear-timeline-spray.webp" alt="Smooth, protected hair all day" onerror="this.style.display=\'none\'">';
+    /* comparison */
+    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">MAX SMOOTH vs. the rest</div><h1 class="q" style="font-size:22px;margin-top:4px">Why it wins</h1></div>';
+    html+='<img class="hero-img" loading="lazy" src="vs-others.webp" alt="MAX SMOOTH vs other treatments" onerror="this.style.display=\'none\'">';
+    /* bonuses stack */
+    html+='<div class="center" style="margin-top:20px"><div class="eyebrow">And you also get</div><h1 class="q" style="font-size:22px;margin-top:4px">$'+earned+' in free bonuses with your kit</h1></div>';
+    html+='<div class="gifts"><h3>Included today, '+(name||"you")+'</h3>'+
+      gline("📘","Step-by-Step Application Playbook","Kills “I’ll mess it up at home.” The exact pro process, section by section, so you nail a salon result on your very first try.","$37")+
+      gline("💧","Humidity-Proofing Mini Guide","Kills “it won’t survive the weather.” How to stay sleek through rain, the gym and summer heat.","$27")+
+      gline("✨","Make-It-Last Maintenance Guide","Kills “it’ll fade too fast.” The sulfate-free routine that stretches every treatment toward the full 3 months.","$29")+
+      gline("🎁","Your Personalized Smoothing Plan","Kills “will it work on MY hair?” A routine matched to your exact hair type from this quiz.","$19")+
+      '<div class="gline totalv"><span class="ge">🧾</span><div><b>Total value</b><p>Kit + bonuses, if bought separately</p></div><span class="gv totalp">$'+PRICE_FROM+'</span></div>'+
+      '</div>';
+    /* anchor vs salon */
+    html+='<div class="note" style="margin-top:16px;background:#eef3fe;border:1.5px solid #cfe0ff"><b>Do the math:</b> one salon Brazilian keratin runs <b>$'+SALON+'+</b> and you’re back in a few months. One MAX SMOOTH kit gives you <b>5–8 treatments</b> — that’s roughly <b>$10–$15 each</b>, done at home. Over a year, that’s the difference between <b>$75 and $1,000+</b>.</div>';
+    html+='<div class="note" style="margin-top:12px;background:#0b2a7a;border:none;color:#fff"><b>You won’t find this anywhere else.</b> The kit, the $'+earned+' in step-by-step guides, free shipping and the 60-day guarantee only come together right here — not on any marketplace, not in any salon.</div>';
+    html+='<div class="pricebox"><div class="from">Total value $'+PRICE_FROM+'</div><div class="now">$'+PRICE+'</div><div class="once">One-time · ~$10–$15 per treatment · free US shipping · no subscription</div></div>';
+    /* order bump — Bumbum Cream */
+    html+='<label class="bump"><input type="checkbox" id="bumpchk"><div><b>⭐ Add Bumbum Cream (1 jar) for +$'+BUMP_PRICE+'</b><p>Our #1 Brazilian body ritual — firm, lift and fade cellulite + stretch marks in weeks. Add it to this order and it ships <b>free</b> with your kit. One tap, no second checkout.</p></div></label>';
+    /* guarantee */
+    html+='<div class="guar"><div style="font-size:40px;flex:none">🛡️</div><div><b>60-Day "Smooth or It’s Free" Guarantee</b><p>Do your first treatment. If you’re not visibly smoother and more frizz-free after your first treatment (up to 60 days), email us for a full refund — and keep the bonuses. The risk is all on us.</p></div></div>';
+    html+='<div class="sealrow"><span class="seal">🔒 Secure checkout</span><span class="seal">🚚 Free US shipping</span><span class="seal">↩️ 60-day guarantee</span><span class="seal">🧴 Sulfate-free friendly</span></div>';
+    /* real certifications */
+    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">Made to professional standards</div><h1 class="q" style="font-size:22px;margin-top:4px">Our certifications</h1></div>';
+    html+='<div class="sealrow" style="gap:10px">'+
+      '<span class="seal">🇺🇸 Made in USA</span>'+
+      '<span class="seal">🏭 GMP — Good Manufacturing Practice</span>'+
+      '<span class="seal">📋 ISO 22716:2007 (Cosmetics GMP)</span>'+
+      '<span class="seal">💇 PBA Member</span>'+
+      '<span class="seal">✔️ Independent Beauty Association (IBA)</span>'+
+      '</div>';
+    /* FAQ */
+    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">Still deciding?</div><h1 class="q" style="font-size:22px;margin-top:4px">Questions people ask</h1></div>';
+    html+='<div class="faq">'+
+      faq("I’ve never done a keratin treatment. Can I really do this at home?","Yes. The kit comes with a step-by-step playbook: apply to damp hair, blow dry, seal at 450°F. If you can use a flat iron, you can do this. Work in sections and take your time on the first one.")+
+      faq("How long does the smoothing last?","Done correctly and maintained with a sulfate-free routine and the 450°F spray, results can last up to 3 months.* Everyone’s hair is different, so your results will vary with hair type and washing habits. One bottle gives you about 5–8 treatments.")+
+      faq("What hair types is it for?","It’s built for medium to coarse, curly, wavy and frizz-prone hair. Finer hair can use it too — just follow the playbook for lighter application.")+
+      faq("Does it contain formaldehyde? Is there anything I should know?","Yes — the smoothing treatment contains formaldehyde, like many professional Brazilian keratin treatments. Use it in a well-ventilated area, avoid contact with eyes, keep out of reach of children, and don’t use it on children. Always read and follow the label and warnings before use.")+
+      faq("How do I keep results longer?","Switch to sulfate-free shampoo and conditioner, and mist the 450°F heat protectant spray before any heat styling. Harsh, sulfate-heavy washes strip the treatment out faster.")+
+      faq("What’s your guarantee?","60 days. Try your first treatment — if you’re not happier with how smooth and frizz-free your hair is, email us and we’ll refund you, and you keep the bonus guides.")+
+      '</div>';
+    /* aggressive Amanda close */
+    html+='<div class="note" style="margin-top:22px;background:#0b2a7a;border:none;color:#fff;padding:18px">'+
+      '<div style="font-family:Archivo;font-weight:900;font-size:20px;line-height:1.2;margin-bottom:8px">Here’s the truth '+(name||"")+', in black and white:</div>'+
+      '<p style="margin:0 0 8px;color:#dce6fb">Every month you wait, your hair keeps winning — frizz by 9am, an hour lost to the flat iron, and the salon quietly charging you <b style="color:#fff">$'+SALON+'+</b> for something you can do at your bathroom sink. That’s the real reason hairdressers don’t talk about this.</p>'+
+      '<p style="margin:0 0 8px;color:#dce6fb">For <b style="color:#fff">$'+PRICE+' one time</b>, you get the <b style="color:#fff">same keratin + collagen system</b>, the 450°F shield that locks it in, and <b style="color:#fff">$'+earned+' in step-by-step guides</b> — <b style="color:#fff">5–8 treatments</b>, smooth for up to 3 months each.</p>'+
+      '<p style="margin:0;color:#dce6fb">And if it doesn’t make your hair visibly smoother, you pay <b style="color:#fff">nothing</b> — 60 days, full refund, keep the guides. The only way to lose is to close this page and go back to fighting your hair tomorrow morning.</p>'+
+      '</div>';
+    html+='<p class="sub center" style="margin-top:16px">Tap the button, check out securely, and your kit ships free — with your bonus guides sent to your email.</p>';
+    html+='<div class="disc"><b>Safety:</b> For external use only. The smoothing treatment contains formaldehyde. Use in a well-ventilated area. Avoid contact with eyes. Not for use on children. Keep out of reach of children. Always read labels, warnings and directions before use. *Lasts up to 3 months with proper sulfate-free maintenance; results, longevity and number of treatments per bottle vary by hair type and routine. This is a cosmetic hair product and is not intended to diagnose, treat, cure or prevent any condition. Crossed-out prices and bonus values are illustrative of value, not separate charges.</div>';
+    scr.innerHTML=html;
+    showCTA("Get my kit for $"+PRICE+" →","🔒 Secure checkout · free US shipping");
+    cnote.innerHTML="🔒 Secure checkout · free US shipping";
+    var u=document.createElement('div'); u.className='urg'; u.textContent='⏳ Launch price $'+PRICE+' — this round only. It goes back up after.'; cnote.parentNode.insertBefore(u,cnote.nextSibling);
+    ctaBtn.onclick=function(){
+      var bump=false; try{ var b=document.getElementById('bumpchk'); bump=!!(b&&b.checked); }catch(e){}
+      var val=parseFloat(PRICE)+(bump?parseFloat(BUMP_PRICE):0);
+      try{ if(window.fbq) fbq('track','InitiateCheckout',{value:val,currency:'USD'}); }catch(e){}
+      var url=CHECKOUT_URL;
+      if(bump){ url=url.replace(/:1(\?|$)/, ":1,"+BUMP_VARIANT+":1$1"); }
+      try{ var rtk=window.__rtkcid||''; if(rtk){ url += (url.indexOf('?')>-1?'&':'?')+'attributes[rtkcid]='+encodeURIComponent(rtk); } }catch(e){}
+      if(url && url.indexOf('http')===0){ location.href=url + (location.search ? (url.indexOf('?')>-1?'&':'?')+location.search.slice(1) : ""); }
+    };
+    return;
+  }
+}
+function gline(e,t,p,v){ return '<div class="gline"><span class="ge">'+e+'</span><div><b>'+t+'</b><p>'+p+'</p></div>'+(v?'<span class="gv">'+v+'</span>':'')+'</div>'; }
+function faq(q,a){ return '<details><summary>'+q+'</summary><p>'+a+'</p></details>'; }
+
+setEarn(0); render();
+</script>
+</body>
+</html>
