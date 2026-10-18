@@ -124,6 +124,8 @@ h1.q{font-family:Archivo;font-weight:900;font-size:27px;line-height:1.18;margin-
 .disc{font-size:11px;color:var(--muted);margin-top:18px;line-height:1.5;border-top:1px solid var(--line);padding-top:14px}
 /* CTA */
 .ctawrap{position:fixed;left:0;right:0;bottom:0;z-index:40;background:linear-gradient(180deg,rgba(251,247,241,0),var(--cream) 34%);padding:14px 16px calc(14px + env(safe-area-inset-bottom))}
+.ctawrap.inl{position:static;left:auto;right:auto;bottom:auto;z-index:auto;background:none;padding:22px 0 0}
+body.inl-mode .wrap{padding-bottom:28px}
 .ctawrap .in{max-width:560px;margin:0 auto}
 .cta{display:block;width:100%;border:none;border-radius:16px;background:linear-gradient(180deg,var(--green),var(--greenD));color:#fff;font-family:Archivo;font-weight:900;font-size:18px;padding:18px;cursor:pointer;box-shadow:0 10px 24px rgba(20,82,230,.28)}
 .cta:active{transform:translateY(1px)}
@@ -151,12 +153,12 @@ h1.q{font-family:Archivo;font-weight:900;font-size:27px;line-height:1.18;margin-
   <div class="earn"><small>Bonuses unlocked</small><b id="enum">$0</b><span class="tier" id="tier">Frizz Fighter</span></div>
 </div></div>
 
-<div class="wrap"><div id="screen" class="screen"></div></div>
-
+<div class="wrap"><div id="screen" class="screen"></div>
 <div class="ctawrap" id="ctawrap" style="display:none"><div class="in">
   <button class="cta" id="ctaBtn">Continue →</button>
   <div class="cnote" id="cnote">⏱️ Takes less than 3 minutes</div>
 </div></div>
+</div>
 
 <!-- ================= TRACKING SCAFFOLD (fill the IDs before launch) ================= -->
 <script>
@@ -267,8 +269,10 @@ var TIERS=[[0,"Frizz Fighter"],[40,"Smooth Seeker"],[80,"Glass Hair"]];
 function p(t){ return String(t||"").replace(/\{name\}/g, name||"there"); }
 function setEarn(v){ earned=v; enumEl.textContent="$"+earned; var t="Frizz Fighter"; TIERS.forEach(function(x){ if(earned>=x[0]) t=x[1]; }); tierEl.textContent=t; }
 function prog(){ pfill.style.width=Math.max(6,Math.round((idx/(total-1))*100))+"%"; }
-function showCTA(label,note){ ctawrap.style.display="block"; ctaBtn.textContent=label; cnote.innerHTML=note||"⏱️ Takes less than 3 minutes"; }
-function hideCTA(){ ctawrap.style.display="none"; }
+function showCTA(label,note,fixed){ ctawrap.style.display="block"; ctaBtn.textContent=label; cnote.innerHTML=note||"⏱️ Takes less than 3 minutes";
+  if(fixed){ ctawrap.classList.remove('inl'); document.body.classList.remove('inl-mode'); }
+  else { ctawrap.classList.add('inl'); document.body.classList.add('inl-mode'); } }
+function hideCTA(){ ctawrap.style.display="none"; ctawrap.classList.remove('inl'); document.body.classList.remove('inl-mode'); }
 function next(){ if(idx<total-1){ idx++; render(); window.scrollTo({top:0,behavior:"smooth"}); } }
 
 function render(){
@@ -419,7 +423,7 @@ function render(){
     html+='<div class="disc"><b>Safety:</b> For external use only. The smoothing treatment contains formaldehyde. Use in a well-ventilated area. Avoid contact with eyes. Not for use on children. Keep out of reach of children. Always read labels, warnings and directions before use. *Lasts up to 3 months with proper sulfate-free maintenance; results, longevity and number of treatments per bottle vary by hair type and routine. This is a cosmetic hair product and is not intended to diagnose, treat, cure or prevent any condition. Crossed-out prices and bonus values are illustrative of value, not separate charges.</div>';
     html+='<div class="pagefoot"><svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="It’s Brazilian"><defs><radialGradient id="ibgf" cx="50%" cy="8%" r="95%"><stop offset="0%" stop-color="#ffd21a"/><stop offset="50%" stop-color="#ff9a1e"/><stop offset="100%" stop-color="#ff5a1e"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#ibgf)"/><text x="50" y="43" text-anchor="middle" font-family="Pacifico, cursive" font-size="21" fill="#fff">It’s</text><text x="50" y="70" text-anchor="middle" font-family="Pacifico, cursive" font-size="19" fill="#fff">Brazilian</text></svg><div class="fb">MAX SMOOTH by It’s Brazilian</div><div class="fine">© It’s Brazilian · Made in the USA · All rights reserved.</div></div>';
     scr.innerHTML=html;
-    showCTA("Get my kit for $"+PRICE+" →","🔒 Secure checkout · free US shipping");
+    showCTA("Get my kit for $"+PRICE+" →","🔒 Secure checkout · free US shipping",true);
     cnote.innerHTML="🔒 Secure checkout · free US shipping";
     var u=document.createElement('div'); u.className='urg'; u.textContent='⏳ Launch price $'+PRICE+' — this round only. It goes back up after.'; cnote.parentNode.insertBefore(u,cnote.nextSibling);
     ctaBtn.onclick=function(){
