@@ -228,8 +228,8 @@ var SALON        = "350"; // typical US salon keratin price (anchor)
 var STEPS = [
  {k:"intro",eyebrow:"MAX SMOOTH by It’s Brazilian · For 4C, Coily & Kinky Hair",
   h:'The Brazilian keratin built for <span class="hlg">the hardest hair to straighten</span> — 4C, coily, thick, resistant — now <span class="hlg">straight &amp; smooth for up to 3 months</span>, at home.',
-  img:"before-after.webp",
-  vid:"", poster:"before-after.webp",
+  img:"co-ba.webp",
+  vid:"", poster:"co-ba.webp",
   lede:'Coily and 4C hair is the <b>hardest hair to keep straight</b> — the tight curl pattern and raised cuticle fight every flat-iron pass and spring right back the moment there’s humidity. <b>MAX SMOOTH</b> is a professional <span class="hl">keratin + collagen smoothing treatment</span> (a keratin treatment — not a lye relaxer) that bonds into the hair and seals the cuticle, so even the most resistant textures stay <b>straight and smooth for weeks</b> — through humidity, sweat and the gym. Salons charge <b>$300–$500</b> a visit; one kit gives you <b>5–8 salon-grade treatments</b> for the price of a single blow-dry. Answer a few quick questions and build your personalized straightening plan — and unlock the bonuses that come with your kit.',
   note:"How it works: answer below in under 3 minutes. Each answer unlocks a bonus that’s included with your kit and builds your plan at the end.",
   cta:"Build my plan"},
@@ -363,12 +363,12 @@ function render(){
     html+='<h1 class="q" style="margin-top:6px">From today, '+(name||"there")+', even your most resistant 4C/coily hair can stay <span class="hlg">straight and smooth for weeks</span> — at home, for the price of a single blow-dry.</h1></div>';
     html+='<p class="lede center" style="font-size:15.5px">No more half-days in a salon chair. No more hundreds of dollars every few months. <b>MAX SMOOTH by It’s Brazilian</b> gives you the salon’s keratin + collagen system <b>and</b> the 450°F heat shield to lock it in — at home, up to 3 months per treatment.*</p>';
     html+='<div class="offerline"><div class="eyebrow" style="margin-bottom:6px">The Resistant-Hair Smoothing System™</div><div class="ol-top">The <b>MAX SMOOTH keratin treatment</b> (alisador) + a <b>FREE 450°F leave-in</b> + <b>$'+earned+' in bonuses</b> for just</div><div class="ol-price">$'+PRICE+'</div><div class="ol-sub" style="color:var(--green);font-size:14px">That’s about <b>$10–$15 per salon-grade treatment</b> (5–8 per kit) vs <b>$'+SALON+'+</b> at the salon.</div><div class="ol-sub">One-time · free US shipping · 60-day smooth-or-free guarantee</div></div>';
-    if(VIDEO_SRC){ html+='<div class="vwrap"><video controls playsinline poster="before-after.webp" style="width:100%;height:100%;object-fit:cover"><source src="'+VIDEO_SRC+'" type="video/mp4"></video></div>'; }
-    html+='<img class="hero-img" loading="lazy" src="before-after.webp" alt="MAX SMOOTH before and after" onerror="this.style.display=\'none\'">';
+    if(VIDEO_SRC){ html+='<div class="vwrap"><video controls playsinline poster="co-ba.webp" style="width:100%;height:100%;object-fit:cover"><source src="'+VIDEO_SRC+'" type="video/mp4"></video></div>'; }
+    html+='<img class="hero-img" loading="lazy" src="co-ba.webp" alt="MAX SMOOTH before and after" onerror="this.style.display=\'none\'">';
     /* real customer before/after — no filters */
     html+='<div class="center" style="margin-top:22px"><div class="eyebrow">Real women · no filters · one treatment</div><h1 class="q" style="font-size:22px;margin-top:4px">What the hairdressers don’t want you to see</h1></div>';
-    html+='<img class="hero-img" loading="lazy" src="ba-selfie1.webp" alt="Real customer before and after" onerror="this.style.display=\'none\'">';
-    html+='<img class="hero-img" loading="lazy" src="ba-selfie2.webp" alt="Real customer before and after" onerror="this.style.display=\'none\'" style="margin-top:10px">';
+    html+='<img class="hero-img" loading="lazy" src="co-selfie1.webp" alt="Real customer before and after" onerror="this.style.display=\'none\'">';
+    html+='<img class="hero-img" loading="lazy" src="co-selfie2.webp" alt="Real customer before and after" onerror="this.style.display=\'none\'" style="margin-top:10px">';
     html+='<p class="sub center" style="margin-top:8px">Same woman, same day — frizzy and unmanageable, then glass-smooth. Done at home, not in a salon.</p>';
     /* what's in the box */
     html+='<div class="center" style="margin-top:22px"><div class="eyebrow">What you get</div><h1 class="q" style="font-size:22px;margin-top:4px">Your treatment + a free gift worth $39</h1></div>';
@@ -391,16 +391,16 @@ function render(){
       '</div>';
     /* results over time */
     html+='<div class="center" style="margin-top:22px"><div class="eyebrow">Results over time</div><h1 class="q" style="font-size:22px;margin-top:4px">Day 1 to Month 3</h1></div>';
-    html+='<img class="hero-img" loading="lazy" src="timeline-treatment.webp" alt="MAX SMOOTH results from day 1 to month 3" onerror="this.style.display=\'none\'">';
+    html+='<img class="hero-img" loading="lazy" src="co-timeline.webp" alt="MAX SMOOTH results from day 1 to month 3" onerror="this.style.display=\'none\'">';
     /* durability tests */
     html+='<div class="center" style="margin-top:22px"><div class="eyebrow">Real-life durability</div><h1 class="q" style="font-size:22px;margin-top:4px">Humidity, rain, sweat &amp; heat</h1></div>';
-    html+='<img class="hero-img" loading="lazy" src="durability-treatment.webp" alt="Durability test — smooth in every condition" onerror="this.style.display=\'none\'">';
-    html+='<img class="hero-img" loading="lazy" src="durability-spray.webp" alt="450°F spray durability test" onerror="this.style.display=\'none\'">';
+    html+='<img class="hero-img" loading="lazy" src="co-durability.webp" alt="Durability test — smooth in every condition" onerror="this.style.display=\'none\'">';
+    html+='<img class="hero-img" loading="lazy" src="co-desk.webp" alt="450°F spray durability test" onerror="this.style.display=\'none\'">';
     /* the spray, step by step */
     html+='<div class="center" style="margin-top:22px"><div class="eyebrow" style="color:var(--green)">🎁 Your FREE leave-in gift</div><h1 class="q" style="font-size:22px;margin-top:4px">The 450°F leave-in — free with your treatment</h1><p class="sub center" style="margin-top:4px">A separate bottle from the alisador. You don’t pay for it — it ships free in your box.</p></div>';
     html+='<img class="hero-img" loading="lazy" src="leavein.webp" alt="MAX SMOOTH 450°F Heat Protectant Leave-In Spray — free gift" onerror="this.style.display=\'none\'">';
-    html+='<img class="hero-img" loading="lazy" src="spray-howto.webp" alt="How to use the 450°F heat protectant spray" onerror="this.style.display=\'none\'">';
-    html+='<img class="hero-img" loading="lazy" src="wear-timeline-spray.webp" alt="Smooth, protected hair all day" onerror="this.style.display=\'none\'">';
+    html+='<img class="hero-img" loading="lazy" src="co-spray.webp" alt="How to use the 450°F heat protectant spray" onerror="this.style.display=\'none\'">';
+    html+='<img class="hero-img" loading="lazy" src="co-durability.webp" alt="Smooth, protected hair all day" onerror="this.style.display=\'none\'">';
     /* comparison */
     html+='<div class="center" style="margin-top:22px"><div class="eyebrow">MAX SMOOTH vs. the rest</div><h1 class="q" style="font-size:22px;margin-top:4px">Why it wins</h1></div>';
     html+='<img class="hero-img" loading="lazy" src="vs-others.webp" alt="MAX SMOOTH vs other treatments" onerror="this.style.display=\'none\'">';
