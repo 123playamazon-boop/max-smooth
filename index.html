@@ -111,6 +111,13 @@ h1.q{font-family:Archivo;font-weight:900;font-size:27px;line-height:1.18;margin-
 .bump input{width:22px;height:22px;flex:none;margin-top:2px;accent-color:var(--green)}
 .bump b{font-size:14.5px;display:block}
 .bump .bimg{width:66px;height:66px;object-fit:cover;border-radius:10px;flex:none;border:1px solid #e9c84a}
+.kitsel{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.kitopt{position:relative;border:2px solid var(--line);background:var(--card);border-radius:14px;padding:14px 12px 12px;cursor:pointer;text-align:center;transition:.15s;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.kitopt.sel{border-color:var(--green);background:#eef3fe;box-shadow:0 6px 16px rgba(20,82,230,.14)}
+.kitopt .kt{font-family:Archivo;font-weight:900;font-size:15px;color:var(--ink)}
+.kitopt .kp{font-family:Archivo;font-weight:900;font-size:22px;color:var(--green);margin-top:4px}
+.kitopt .ks{font-size:11.5px;color:var(--muted);margin-top:2px;line-height:1.3}
+.kitopt .ktag{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#c0392b;color:#fff;font-size:10px;font-weight:800;padding:3px 9px;border-radius:999px;white-space:nowrap}
 .bump p{font-size:12.5px;color:#4a443c;margin-top:3px}
 .guar{display:flex;gap:14px;align-items:flex-start;background:#f0f5ff;border:1.5px solid #cfe0ff;border-radius:16px;padding:16px;margin-top:16px}
 .guar b{font-size:15px}.guar p{font-size:13px;color:#3b4458;margin-top:4px}
@@ -204,6 +211,11 @@ y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document
 /* Shopify cart permalink. Replace STORE + VARIANT_ID once the product exists.
    Format: https://your-store.myshopify.com/cart/VARIANT_ID:1  (or custom domain) */
 var CHECKOUT_URL = "https://pay.seeseofficial.shop/cart/53976256741665:1";
+var CART_BASE    = "https://pay.seeseofficial.shop/cart/";
+var MAIN_VARIANT = "53976256741665";
+/* 2-kit bundle — Shopify discount code (15% off, min 2) */
+var KIT2_CODE    = "SECONDKIT";
+var KIT2_OFF     = 0.15;
 /* order bump — Bumbum Cream (1 jar) on the same Shopify store */
 var BUMP_VARIANT = "53027149480225";
 var BUMP_PRICE   = "39.99";
@@ -218,7 +230,7 @@ var STEPS = [
   h:'The Brazilian salon secret for <span class="hlg">glass-smooth, frizz-free hair</span> that lasts <span class="hlg">up to 3 months</span> — at home, for <span class="hlr">less than one blow-dry</span>.',
   img:"before-after.webp",
   vid:"", poster:"before-after.webp",
-  lede:'Salons charge <b>$300–$500</b> for a Brazilian keratin treatment — and you’re back in the chair within months. <b>MAX SMOOTH</b> is the <span class="hl">same professional keratin + collagen system</span>, bottled for home: it smooths coarse, curly, frizz-prone hair into a sleek, shiny finish that holds through humidity, rain and heat. One kit gives you <b>5–8 salon-grade treatments</b>. Answer a few quick questions and build your personalized smoothing plan — and unlock the bonuses that come with your kit.',
+  lede:'Salons charge <b>$300–$500</b> a visit — and you’re back every few months, so Brazilian keratin runs you <b>$1,000+ a year</b>. <b>MAX SMOOTH</b> is the <span class="hl">same professional keratin + collagen system</span>, bottled for home: one kit gives you <b>5–8 salon-grade treatments</b> for the price of a single blow-dry. Spend <b>one evening every few months</b> and wake up with sleek, shiny, frizz-free hair that holds through humidity, rain and heat — instead of fighting your hair every single morning. Answer a few quick questions and build your personalized smoothing plan — and unlock the bonuses that come with your kit.',
   note:"How it works: answer below in under 3 minutes. Each answer unlocks a bonus that’s included with your kit and builds your plan at the end.",
   cta:"Build my plan"},
 
@@ -409,8 +421,17 @@ function render(){
       '</div>';
     /* anchor vs salon */
     html+='<div class="note" style="margin-top:16px;background:#eef3fe;border:1.5px solid #cfe0ff"><b>Do the math:</b> one salon Brazilian keratin runs <b>$'+SALON+'+</b> and you’re back in a few months. One MAX SMOOTH kit gives you <b>5–8 treatments</b> — that’s roughly <b>$10–$15 each</b>, done at home. Over a year, that’s the difference between <b>$75 and $1,000+</b>.</div>';
+    html+='<div class="note" style="margin-top:10px"><b>And the time?</b> Set aside <b>one evening every few months</b> — do it once while you watch Netflix, then wake up smooth for weeks. Compare that to flat-ironing and fighting frizz <b>every single morning</b> all year. You’re not adding work — you’re buying your mornings back.</div>';
     html+='<div class="note" style="margin-top:12px;background:#0b2a7a;border:none;color:#fff"><b>You won’t find this anywhere else.</b> The kit, the $'+earned+' in step-by-step guides, free shipping and the 60-day guarantee only come together right here — not on any marketplace, not in any salon.</div>';
     html+='<div class="pricebox"><div class="from">Total value $'+PRICE_FROM+'</div><div class="now">$'+PRICE+'</div><div class="once">One-time · ~$10–$15 per treatment · free US shipping · no subscription</div></div>';
+    /* kit quantity selector — AOV */
+    var k2=(parseFloat(PRICE)*2*(1-KIT2_OFF)); var k2s=k2.toFixed(2); var k2per=(k2/2).toFixed(2); var k2save=(parseFloat(PRICE)*2-k2).toFixed(2);
+    html+='<div class="center" style="margin-top:18px"><div class="eyebrow">Choose your supply</div><h1 class="q" style="font-size:20px;margin-top:2px">How many kits, '+(name||"")+'?</h1></div>';
+    html+='<div class="kitsel">'+
+      '<div class="kitopt sel" data-kit="1"><div class="kt">1 Kit</div><div class="kp">$'+PRICE+'</div><div class="ks">~3 months of smooth<br>5–8 treatments</div></div>'+
+      '<div class="kitopt" data-kit="2"><div class="ktag">BEST VALUE · SAVE $'+k2save+'</div><div class="kt">2 Kits</div><div class="kp">$'+k2s+'</div><div class="ks">~6 months · never run out<br>$'+k2per+' per kit</div></div>'+
+      '</div>';
+    html+='<p class="sub center" style="margin-top:8px">Most women grab 2 so they’re covered for the year — and the 2nd kit is 15% off.</p>';
     /* order bump — Bumbum Cream */
     html+='<label class="bump"><input type="checkbox" id="bumpchk"><img class="bimg" src="bumbum.webp" alt="It’s Brazilian Firming Body Cream" onerror="this.style.display=\'none\'"><div><b>⭐ Add Firming Body Cream (1 jar) for +$'+BUMP_PRICE+'</b><p>Our #1 Brazilian body ritual — firm, lift and fade cellulite + stretch marks in weeks. Add it to this order and it ships <b>free</b> with your kit. One tap, no second checkout.</p></div></label>';
     /* guarantee */
@@ -449,21 +470,36 @@ function render(){
     showCTA("Get my kit for $"+PRICE+" →","🔒 Secure checkout · free US shipping",true);
     cnote.innerHTML="🔒 Secure checkout · free US shipping";
     var u=document.createElement('div'); u.className='urg'; u.textContent='⏳ Launch price $'+PRICE+' — this round only. It goes back up after.'; cnote.parentNode.insertBefore(u,cnote.nextSibling);
+    /* kit selector wiring */
+    window.__kit=1;
+    function kitPrice(){ return (window.__kit===2)? kitTwoTotal() : parseFloat(PRICE); }
+    function kitTwoTotal(){ return parseFloat(PRICE)*2*(1-KIT2_OFF); }
+    function syncCTA(){ var base=kitPrice(); ctaBtn.textContent = (window.__kit===2? "Get 2 kits for $"+base.toFixed(2) : "Get my kit for $"+PRICE)+" →"; }
+    Array.prototype.forEach.call(scr.querySelectorAll('.kitopt'),function(o){
+      o.onclick=function(){
+        Array.prototype.forEach.call(scr.querySelectorAll('.kitopt'),function(x){x.classList.remove('sel');});
+        o.classList.add('sel'); window.__kit=parseInt(o.getAttribute('data-kit'),10)||1; syncCTA();
+      };
+    });
     ctaBtn.onclick=function(){
       var bump=false; try{ var b=document.getElementById('bumpchk'); bump=!!(b&&b.checked); }catch(e){}
-      var val=parseFloat(PRICE)+(bump?parseFloat(BUMP_PRICE):0);
+      var two=window.__kit===2; var qty=two?2:1;
+      var val=kitPrice()+(bump?parseFloat(BUMP_PRICE):0);
       try{ if(window.fbq) fbq('track','InitiateCheckout',{value:val,currency:'USD'}); }catch(e){}
-      var url=CHECKOUT_URL;
-      if(bump){ url=url.replace(/:1(\?|$)/, ":1,"+BUMP_VARIANT+":1$1"); }
-      try{ var rtk=window.__rtkcid||''; if(rtk){ url += (url.indexOf('?')>-1?'&':'?')+'attributes[rtkcid]='+encodeURIComponent(rtk); } }catch(e){}
-      if(url && url.indexOf('http')===0){ location.href=url + (location.search ? (url.indexOf('?')>-1?'&':'?')+location.search.slice(1) : ""); }
+      var items=MAIN_VARIANT+":"+qty; if(bump){ items+=","+BUMP_VARIANT+":1"; }
+      var url=CART_BASE+items;
+      var qs=[]; if(two){ qs.push('discount='+KIT2_CODE); }
+      try{ var rtk=window.__rtkcid||''; if(rtk){ qs.push('attributes[rtkcid]='+encodeURIComponent(rtk)); } }catch(e){}
+      if(location.search){ qs.push(location.search.slice(1)); }
+      if(qs.length){ url+='?'+qs.join('&'); }
+      location.href=url;
     };
     return;
   }
 }
 function gline(e,t,p,v){ return '<div class="gline"><span class="ge">'+e+'</span><div><b>'+t+'</b><p>'+p+'</p></div>'+(v?'<span class="gv">'+v+'</span>':'')+'</div>'; }
 function faq(q,a){ return '<details><summary>'+q+'</summary><p>'+a+'</p></details>'; }
-function rvw(ini,name,title,body){ return '<div class="rvw"><div class="rtop"><div class="av">'+ini+'</div><div><div class="nm">'+name+'</div><div class="stars">★★★★★</div></div></div><div class="rt">'+title+'</div><div class="rb">'+body+'</div><span class="vp">✔ Verified Purchase</span><div class="src">Amazon · United States</div></div>'; }
+function rvw(ini,name,title,body){ return '<div class="rvw"><div class="rtop"><div class="av">'+ini+'</div><div><div class="nm">'+name+'</div><div class="stars">★★★★★</div></div></div><div class="rt">'+title+'</div><div class="rb">'+body+'</div><span class="vp">✔ Verified buyer</span><div class="src">United States</div></div>'; }
 
 setEarn(0); render();
 </script>
