@@ -8,7 +8,7 @@
 <meta name="description" content="Answer a few quick questions and build your at-home Brazilian keratin smoothing plan. Takes under 3 minutes.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700;800&family=Pacifico&display=swap" rel="stylesheet">
 <style>
 :root{
   --ink:#0e1424; --muted:#6b7488; --cream:#f4f7fd; --card:#ffffff;
@@ -22,8 +22,14 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--ink);backg
 .topbar{position:sticky;top:0;z-index:30;background:rgba(251,247,241,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
 .topbar .in{max-width:560px;margin:0 auto;padding:10px 16px 12px}
 .brandrow{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.brand{font-family:Archivo;font-weight:900;letter-spacing:.3px;font-size:16px;color:var(--green)}
+.brand{font-family:Archivo;font-weight:900;letter-spacing:.3px;font-size:16px;color:var(--green);display:flex;align-items:center}
+.brand .logo{height:42px;width:42px;display:block}
+.brand .wordmark{display:none}
 .brand span{color:var(--gold)}
+.pagefoot{text-align:center;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
+.pagefoot .logo{width:72px;height:72px;display:inline-block}
+.pagefoot .fb{font-family:Archivo;font-weight:900;font-size:15px;color:var(--ink);margin-top:8px}
+.pagefoot .fine{font-size:11px;color:var(--muted);margin-top:4px}
 .badge{font-size:11px;font-weight:800;color:var(--greenD);background:#e8efff;border:1px solid #cfe0ff;border-radius:999px;padding:4px 10px}
 .prog{height:8px;background:#dce6fb;border-radius:999px;overflow:hidden}
 .prog i{display:block;height:100%;width:6%;background:linear-gradient(90deg,var(--gold),var(--green));transition:width .4s ease}
@@ -128,7 +134,17 @@ h1.q{font-family:Archivo;font-weight:900;font-size:27px;line-height:1.18;margin-
 <body>
 <div class="topbar"><div class="in">
   <div class="brandrow">
-    <div class="brand">IT'S <span>BRAZILIAN</span></div>
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="It's Brazilian">
+        <defs><radialGradient id="ibg" cx="50%" cy="8%" r="95%">
+          <stop offset="0%" stop-color="#ffd21a"/><stop offset="50%" stop-color="#ff9a1e"/><stop offset="100%" stop-color="#ff5a1e"/>
+        </radialGradient></defs>
+        <circle cx="50" cy="50" r="50" fill="url(#ibg)"/>
+        <text x="50" y="43" text-anchor="middle" font-family="Pacifico, cursive" font-size="21" fill="#fff">It's</text>
+        <text x="50" y="70" text-anchor="middle" font-family="Pacifico, cursive" font-size="19" fill="#fff">Brazilian</text>
+      </svg>
+      <span class="wordmark">IT'S <span>BRAZILIAN</span></span>
+    </div>
     <div class="badge">★ Salon-grade at home</div>
   </div>
   <div class="prog"><i id="pfill"></i></div>
@@ -401,6 +417,7 @@ function render(){
       '</div>';
     html+='<p class="sub center" style="margin-top:16px">Tap the button, check out securely, and your kit ships free — with your bonus guides sent to your email.</p>';
     html+='<div class="disc"><b>Safety:</b> For external use only. The smoothing treatment contains formaldehyde. Use in a well-ventilated area. Avoid contact with eyes. Not for use on children. Keep out of reach of children. Always read labels, warnings and directions before use. *Lasts up to 3 months with proper sulfate-free maintenance; results, longevity and number of treatments per bottle vary by hair type and routine. This is a cosmetic hair product and is not intended to diagnose, treat, cure or prevent any condition. Crossed-out prices and bonus values are illustrative of value, not separate charges.</div>';
+    html+='<div class="pagefoot"><svg class="logo" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="It’s Brazilian"><defs><radialGradient id="ibgf" cx="50%" cy="8%" r="95%"><stop offset="0%" stop-color="#ffd21a"/><stop offset="50%" stop-color="#ff9a1e"/><stop offset="100%" stop-color="#ff5a1e"/></radialGradient></defs><circle cx="50" cy="50" r="50" fill="url(#ibgf)"/><text x="50" y="43" text-anchor="middle" font-family="Pacifico, cursive" font-size="21" fill="#fff">It’s</text><text x="50" y="70" text-anchor="middle" font-family="Pacifico, cursive" font-size="19" fill="#fff">Brazilian</text></svg><div class="fb">MAX SMOOTH by It’s Brazilian</div><div class="fine">© It’s Brazilian · Made in the USA · All rights reserved.</div></div>';
     scr.innerHTML=html;
     showCTA("Get my kit for $"+PRICE+" →","🔒 Secure checkout · free US shipping");
     cnote.innerHTML="🔒 Secure checkout · free US shipping";
