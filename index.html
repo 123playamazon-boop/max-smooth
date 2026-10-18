@@ -339,7 +339,7 @@ function render(){
     html+='<div class="center"><div class="eyebrow">🎉 Your plan is ready, '+(name||"there")+'</div>';
     html+='<h1 class="q" style="margin-top:6px">From today, '+(name||"there")+', you get <span class="hlg">glass-smooth, frizz-free hair</span> — on your schedule, for the price of a single blow-dry.</h1></div>';
     html+='<p class="lede center" style="font-size:15.5px">No more half-days in a salon chair. No more hundreds of dollars every few months. <b>MAX SMOOTH by It’s Brazilian</b> gives you the salon’s keratin + collagen system <b>and</b> the 450°F heat shield to lock it in — at home, up to 3 months per treatment.*</p>';
-    html+='<div class="offerline"><div class="eyebrow" style="margin-bottom:6px">The 3-Month Glass-Hair System™</div><div class="ol-top">The full <b>MAX SMOOTH kit</b> (treatment + 450°F spray) + <b>$'+earned+' in bonuses</b> for just</div><div class="ol-price">$'+PRICE+'</div><div class="ol-sub" style="color:var(--green);font-size:14px">That’s about <b>$10–$15 per salon-grade treatment</b> (5–8 per kit) vs <b>$'+SALON+'+</b> at the salon.</div><div class="ol-sub">One-time · free US shipping · 60-day smooth-or-free guarantee</div></div>';
+    html+='<div class="offerline"><div class="eyebrow" style="margin-bottom:6px">The 3-Month Glass-Hair System™</div><div class="ol-top">The <b>MAX SMOOTH keratin treatment</b> (alisador) + a <b>FREE 450°F leave-in</b> + <b>$'+earned+' in bonuses</b> for just</div><div class="ol-price">$'+PRICE+'</div><div class="ol-sub" style="color:var(--green);font-size:14px">That’s about <b>$10–$15 per salon-grade treatment</b> (5–8 per kit) vs <b>$'+SALON+'+</b> at the salon.</div><div class="ol-sub">One-time · free US shipping · 60-day smooth-or-free guarantee</div></div>';
     if(VIDEO_SRC){ html+='<div class="vwrap"><video controls playsinline poster="before-after.webp" style="width:100%;height:100%;object-fit:cover"><source src="'+VIDEO_SRC+'" type="video/mp4"></video></div>'; }
     html+='<img class="hero-img" loading="lazy" src="before-after.webp" alt="MAX SMOOTH before and after" onerror="this.style.display=\'none\'">';
     /* real customer before/after — no filters */
@@ -348,10 +348,14 @@ function render(){
     html+='<img class="hero-img" loading="lazy" src="ba-selfie2.webp" alt="Real customer before and after" onerror="this.style.display=\'none\'" style="margin-top:10px">';
     html+='<p class="sub center" style="margin-top:8px">Same woman, same day — frizzy and unmanageable, then glass-smooth. Done at home, not in a salon.</p>';
     /* what's in the box */
-    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">What’s in the box</div><h1 class="q" style="font-size:22px;margin-top:4px">The complete 2-step smoothing system</h1></div>';
-    html+='<div class="gifts"><h3>Your MAX SMOOTH kit includes</h3>'+
-      gline("🧴","Keratin + Collagen Smoothing Treatment — 16 fl oz (448 mL)","The professional treatment. Keratin strengthens and smooths while collagen nourishes and adds shine. 450°F, ~20-min process, 5–8 treatments per bottle, lasts up to 3 months* on medium to coarse, frizz-prone hair.","$139")+
-      gline("💨","450°F Thermal Shield Heat Protectant Spray — 8 fl oz (237 mL)","Weightless leave-in that shields hair up to 450°F, detangles, and locks out humidity — so every pass of the iron protects and seals, with no greasy residue.","$39")+
+    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">What you get</div><h1 class="q" style="font-size:22px;margin-top:4px">Your treatment + a free gift worth $39</h1></div>';
+    /* THE PRODUCT — the alisador (paid) */
+    html+='<div class="gifts"><h3>🧴 Your product — the smoothing treatment (alisador)</h3>'+
+      gline("🧴","Keratin + Collagen Smoothing Treatment (Alisador) — 16 fl oz (448 mL)","<b>This is the product you’re buying.</b> The professional Brazilian keratin + collagen treatment that actually smooths and seals the hair. 450°F, ~20-min process, 5–8 treatments per bottle, lasts up to 3 months* on medium to coarse, frizz-prone hair.","$139")+
+      '</div>';
+    /* THE FREE GIFT — the leave-in */
+    html+='<div class="gifts" style="border:2px solid var(--green);background:#eef3fe;margin-top:12px"><h3 style="color:var(--green)">🎁 Your FREE gift today — the leave-in</h3>'+
+      gline("💨","450°F Thermal Shield Heat Protectant Leave-In — 8 fl oz (237 mL)","A <b>separate bottle</b> — this is <b>not</b> the treatment. A weightless leave-in that shields hair up to 450°F, detangles and locks out humidity so your smoothing lasts longer. Normally $39 — <b>yours FREE with your treatment today.</b>","FREE")+
       '</div>';
     /* how it works — real infographic */
     html+='<div class="center" style="margin-top:22px"><div class="eyebrow">How it works</div><h1 class="q" style="font-size:22px;margin-top:4px">The problem, the solution, the result</h1></div>';
@@ -369,7 +373,7 @@ function render(){
     html+='<img class="hero-img" loading="lazy" src="durability-treatment.webp" alt="Durability test — smooth in every condition" onerror="this.style.display=\'none\'">';
     html+='<img class="hero-img" loading="lazy" src="durability-spray.webp" alt="450°F spray durability test" onerror="this.style.display=\'none\'">';
     /* the spray, step by step */
-    html+='<div class="center" style="margin-top:22px"><div class="eyebrow">Your 450°F thermal shield</div><h1 class="q" style="font-size:22px;margin-top:4px">Protect every pass of the iron</h1></div>';
+    html+='<div class="center" style="margin-top:22px"><div class="eyebrow" style="color:var(--green)">🎁 Your FREE leave-in gift</div><h1 class="q" style="font-size:22px;margin-top:4px">The 450°F leave-in — free with your treatment</h1><p class="sub center" style="margin-top:4px">A separate bottle from the alisador. You don’t pay for it — it ships free in your box.</p></div>';
     html+='<img class="hero-img" loading="lazy" src="spray-howto.webp" alt="How to use the 450°F heat protectant spray" onerror="this.style.display=\'none\'">';
     html+='<img class="hero-img" loading="lazy" src="wear-timeline-spray.webp" alt="Smooth, protected hair all day" onerror="this.style.display=\'none\'">';
     /* comparison */
