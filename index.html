@@ -115,6 +115,15 @@ h1.q{font-family:Archivo;font-weight:900;font-size:27px;line-height:1.18;margin-
 .guar b{font-size:15px}.guar p{font-size:13px;color:#3b4458;margin-top:4px}
 .sealrow{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
 .seal{font-size:12px;font-weight:700;color:var(--greenD);background:#e8efff;border:1px solid #cfe0ff;border-radius:999px;padding:6px 12px}
+.rvw{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:12px}
+.rvw .rtop{display:flex;align-items:center;gap:10px}
+.rvw .av{width:36px;height:36px;border-radius:50%;background:linear-gradient(180deg,var(--green),var(--greenD));color:#fff;font-weight:800;font-family:Archivo;display:flex;align-items:center;justify-content:center;flex:none;font-size:15px}
+.rvw .nm{font-weight:800;font-size:14px;color:var(--ink)}
+.rvw .stars{color:#ff9a1e;font-size:14px;letter-spacing:1px;margin-top:8px}
+.rvw .rt{font-weight:800;font-size:14.5px;color:var(--ink);margin:2px 0 6px}
+.rvw .rb{font-size:13.5px;color:#3b4458;line-height:1.55}
+.rvw .vp{display:inline-block;font-size:11px;font-weight:800;color:#157347;margin-top:10px}
+.rvw .src{font-size:11px;color:var(--muted);margin-top:2px}
 .faq{margin-top:12px}
 .faq details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 14px;margin-bottom:8px}
 .faq summary{cursor:pointer;font-weight:700;font-size:14.5px;padding:14px 0;list-style:none}
@@ -380,6 +389,13 @@ function render(){
     /* comparison */
     html+='<div class="center" style="margin-top:22px"><div class="eyebrow">MAX SMOOTH vs. the rest</div><h1 class="q" style="font-size:22px;margin-top:4px">Why it wins</h1></div>';
     html+='<img class="hero-img" loading="lazy" src="vs-others.webp" alt="MAX SMOOTH vs other treatments" onerror="this.style.display=\'none\'">';
+    /* real reviews */
+    html+='<div class="center" style="margin-top:24px"><div class="eyebrow">★★★★★ Real buyers · verified reviews</div><h1 class="q" style="font-size:22px;margin-top:4px">What women are actually saying</h1></div>';
+    html+=rvw("C","Cynthia","Love this product.","It works exactly the same as a Brazilian blowout, but better — it controls the frizz and doesn’t make my hair so flat, it still keeps my volume. It does have that same salon smell, so do it in a well-ventilated spot. Totally worth it.");
+    html+=rvw("A","Ashley","Dramatically changed my hair, even after a month!","It’s been about a month and my hair is almost as glossy and frizz-free as when I first did the treatment. I naturally have wavy, frizzy, tangle-prone hair and I just don’t have those issues anymore — my flyaways and baby hairs don’t curl up in humidity.");
+    html+=rvw("E","ejc2184","Long, smelly process but it’s worth it!!","I’ve DREAMED about being able to just blow dry my hair and have it look decent — this actually gave me that. It’s a committed process, but I can now take 3 minutes to blow dry and it looks like I flat-ironed it. Incredible.");
+    html+=rvw("J","Julitza Gerena","Goodbye frizz, hello straight hair!","Follow the directions to a T and it’s goodbye frizz, hello straight hair. I love that it’s professional-grade, available without a license, and the results speak for themselves.");
+    html+='<p class="sub center" style="margin-top:8px">Real verified reviews from buyers of this professional Brazilian keratin treatment.</p>';
     /* bonuses stack */
     html+='<div class="center" style="margin-top:20px"><div class="eyebrow">And you also get</div><h1 class="q" style="font-size:22px;margin-top:4px">$'+earned+' in free bonuses with your kit</h1></div>';
     html+='<div class="gifts"><h3>Included today, '+(name||"you")+'</h3>'+
@@ -445,6 +461,7 @@ function render(){
 }
 function gline(e,t,p,v){ return '<div class="gline"><span class="ge">'+e+'</span><div><b>'+t+'</b><p>'+p+'</p></div>'+(v?'<span class="gv">'+v+'</span>':'')+'</div>'; }
 function faq(q,a){ return '<details><summary>'+q+'</summary><p>'+a+'</p></details>'; }
+function rvw(ini,name,title,body){ return '<div class="rvw"><div class="rtop"><div class="av">'+ini+'</div><div><div class="nm">'+name+'</div><div class="stars">★★★★★</div></div></div><div class="rt">'+title+'</div><div class="rb">'+body+'</div><span class="vp">✔ Verified Purchase</span><div class="src">Amazon · United States</div></div>'; }
 
 setEarn(0); render();
 </script>
