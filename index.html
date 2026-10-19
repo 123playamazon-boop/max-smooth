@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <!-- A/B split: 50% stay (A), 50% go to /coily.html (B). Persistent per visitor, carries query (rtkcid). ?noab=1 to force A. -->
-<script>(function(){try{var v;try{v=localStorage.getItem('absplit');}catch(e){}if(!v){var r=Math.random();v=r<0.25?'a':(r<0.5?'b':(r<0.75?'c':'d'));try{localStorage.setItem('absplit',v);}catch(e){}}if(!/[?&]noab=1/.test(location.search)){if(v==='b'){location.replace('/coily.html'+(location.search||''));}else if(v==='c'){location.replace('/mature.html'+(location.search||''));}else if(v==='d'){location.replace('/mom.html'+(location.search||''));}}}catch(e){}})();</script>
+<script>(function(){try{var v;try{v=localStorage.getItem('absplit');}catch(e){}if(v!=='b'&&v!=='d'){v=Math.random()<0.5?'b':'d';try{localStorage.setItem('absplit',v);}catch(e){}}if(!/[?&]noab=1/.test(location.search)){if(v==='b'){location.replace('/coily.html'+(location.search||''));}else{location.replace('/mom.html'+(location.search||''));}}}catch(e){}})();</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
