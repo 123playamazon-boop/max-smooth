@@ -491,7 +491,7 @@ function render(){
       var url=CART_BASE+items;
       var qs=[]; if(two){ qs.push('discount='+KIT2_CODE); }
       try{ var rtk=window.__rtkcid||''; if(rtk){ qs.push('attributes[rtkcid]='+encodeURIComponent(rtk)); } }catch(e){}
-      if(location.search){ qs.push(location.search.slice(1)); }
+      qs.push('attributes[lp]=b'); if(location.search){ qs.push(location.search.slice(1)); }
       if(qs.length){ url+='?'+qs.join('&'); }
       location.href=url;
     };
