@@ -228,8 +228,8 @@ var SALON        = "350"; // typical US salon keratin price (anchor)
 var STEPS = [
  {k:"intro",eyebrow:"MAX SMOOTH by It’s Brazilian · For Hair That Changed After 40",
   h:'The Brazilian keratin for <span class="hlg">hair that changed after 40</span> — drier, frizzier, coarser than it used to be — <span class="hlg">smooth &amp; shiny again for up to 3 months</span>, at home.',
-  img:"co-ba.webp",
-  vid:"", poster:"co-ba.webp",
+  img:"mt-hero.webp",
+  vid:"", poster:"mt-hero.webp",
   lede:'After 40, hormones and time change your hair — it gets <b>drier, coarser, frizzier and harder to manage</b> than it’s ever been, and the products that used to work just don’t anymore. <b>MAX SMOOTH</b> is a professional <span class="hl">keratin + collagen smoothing treatment</span> that fills and seals the hair, bringing back the <b>smooth, shiny, manageable hair you remember</b> — for weeks, not one wash. Salons charge <b>$300–$500</b> a visit; one kit gives you <b>5–8 salon-grade treatments</b> for the price of a single blow-dry. Answer a few quick questions and build your personalized smoothing plan — and unlock the bonuses that come with your kit.',
   note:"How it works: answer below in under 3 minutes. Each answer unlocks a bonus that’s included with your kit and builds your plan at the end.",
   cta:"Build my plan"},
@@ -363,8 +363,8 @@ function render(){
     html+='<h1 class="q" style="margin-top:6px">From today, '+(name||"there")+', your hair can look <span class="hlg">smooth, shiny and healthy again</span> — like it did before it changed — at home, for the price of a single blow-dry.</h1></div>';
     html+='<p class="lede center" style="font-size:15.5px">No more half-days in a salon chair. No more hundreds of dollars every few months. <b>MAX SMOOTH by It’s Brazilian</b> gives you the salon’s keratin + collagen system <b>and</b> the 450°F heat shield to lock it in — at home, up to 3 months per treatment.*</p>';
     html+='<div class="offerline"><div class="eyebrow" style="margin-bottom:6px">The Smooth-Again System™</div><div class="ol-top">The <b>MAX SMOOTH keratin treatment</b> (alisador) + a <b>FREE 450°F leave-in</b> + <b>$'+earned+' in bonuses</b> for just</div><div class="ol-price">$'+PRICE+'</div><div class="ol-sub" style="color:var(--green);font-size:14px">That’s about <b>$10–$15 per salon-grade treatment</b> (5–8 per kit) vs <b>$'+SALON+'+</b> at the salon.</div><div class="ol-sub">One-time · free US shipping · 60-day smooth-or-free guarantee</div></div>';
-    if(VIDEO_SRC){ html+='<div class="vwrap"><video controls playsinline poster="co-ba.webp" style="width:100%;height:100%;object-fit:cover"><source src="'+VIDEO_SRC+'" type="video/mp4"></video></div>'; }
-    html+='<img class="hero-img" loading="lazy" src="co-ba.webp" alt="MAX SMOOTH before and after" onerror="this.style.display=\'none\'">';
+    if(VIDEO_SRC){ html+='<div class="vwrap"><video controls playsinline poster="mt-hero.webp" style="width:100%;height:100%;object-fit:cover"><source src="'+VIDEO_SRC+'" type="video/mp4"></video></div>'; }
+    html+='<img class="hero-img" loading="lazy" src="mt-hero.webp" alt="MAX SMOOTH before and after" onerror="this.style.display=\'none\'">';
     /* real customer before/after — no filters */
     html+='<div class="center" style="margin-top:22px"><div class="eyebrow">Real women · no filters · one treatment</div><h1 class="q" style="font-size:22px;margin-top:4px">What the hairdressers don’t want you to see</h1></div>';
     html+='<img class="hero-img" loading="lazy" src="co-selfie1.webp" alt="Real customer before and after" onerror="this.style.display=\'none\'">';
